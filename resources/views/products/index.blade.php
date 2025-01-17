@@ -4,7 +4,6 @@
             {{ __('Products') }}
         </h2>
     </x-slot>
-
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
@@ -50,13 +49,11 @@
                                     </td>
                                     <td class="py-4 pl-0 pr-4 text-right text-sm/6 text-gray-400 sm:pr-6 lg:pr-8">
                                         <div class="grid grid-cols-2 gap-2">
-                                            <a href="{{ route('products.edit', 1) }}"
-                                                class="text-blue-500 hover:text-blue-600">Edit</a>
-                                            <form action="{{ route('products.destroy', 1) }}" method="POST">
+                                            <a href="{{ route('products.edit', $product->id) }}" class="text-blue-500 hover:text-blue-600">Edit</a>
+                                            <form action="{{ route('products.destroy', $product->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit"
-                                                    class="text-red-500 hover:text-red-600">Delete</button>
+                                                <button type="submit" class="text-red-500 hover:text-red-600">Delete</button>
                                             </form>
                                         </div>
                                     </td>
@@ -68,7 +65,6 @@
                             {{$products}}
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

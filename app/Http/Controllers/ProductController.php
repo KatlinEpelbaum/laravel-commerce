@@ -57,7 +57,15 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $product->update(
+            $request->validate([
+                'name' => 'required',
+                'price' => 'required|numeric|min:0',
+                'image' => 'required|url',
+                'description' => 'required',
+            ])
+        );
+        return redirect()->to(route('products.index'));
     }
 
     /**
@@ -66,6 +74,6 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         $product->delete();
-        back();
+        return back();  
     }
 }

@@ -43,15 +43,21 @@
         </div>
 
         <div>
+            <x-input-label for="description" :value="__('Description')" />
+            <x-text-input id="description" name="description" type="description" class="mt-1 block w-full" 
+            :value="old('description', $product->description)" required autocomplete="description" />
+            <x-input-error class="mt-2" :messages="$errors->get('description')" />
+        </div>
+
+        <div>
             <x-input-label for="image" :value="__('Image')" />
-            <x-text-input id="image" name="image" type="image" class="mt-1 block w-full" 
+            <x-text-input id="image" name="image" type="modle" class="mt-1 block w-full" 
             :value="old('image', $product->image)" required autocomplete="" />
             <x-input-error class="mt-2" :messages="$errors->get('image')" />
         </div>
+        <div>
+            <x-primary-button>{{ __('Save') }} </x-primary-button>
+        </div>
     </form>
 </section>
-                </div>
-            </div>
-        </div>
-    </div>
 </x-app-layout>
